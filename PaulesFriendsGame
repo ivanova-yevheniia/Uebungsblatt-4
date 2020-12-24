@@ -1,0 +1,43 @@
+import de.unistuttgart.iste.rss.oo.hamstersimulator.datatypes.Location;
+import de.unistuttgart.iste.rss.oo.hamstersimulator.datatypes.Direction;
+import de.unistuttgart.iste.rss.oo.hamstersimulator.external.model.Hamster;
+import de.unistuttgart.iste.rss.oo.hamstersimulator.external.model.Territory;
+
+public class PaulesFriendsGame extends Exercise04Base {
+
+    /**
+     * Put your hamster code into this operation. Solve the task in this operation.
+     */
+    public void createPaulesFriends() {
+        //paula create
+        Territory ter = game.getTerritory();
+        Location loc = new Location(3,3);
+        Direction dir = paule.getDirection();
+        dir = dir.left();
+        Hamster paula = new Hamster(ter, loc, dir, 1);
+        
+        //ronnie create
+        Territory territory = game.getTerritory();
+        Location location = new Location(7,7);
+        Direction direction = paule.getDirection();
+        direction = direction.left();
+        direction = direction.left();
+        Hamster ronnie = new Hamster(territory, location, direction, 1);
+        
+        //Bewegung paula zu paule
+        paula.move();
+        paula.move();
+        paula.move();
+        paula.turnLeft();
+        paula.move();
+        paula.move();
+    }
+
+    /**
+     * Do not modify this operation.
+     */
+    void run() {
+        game.displayInNewGameWindow();
+        createPaulesFriends();        
+    }
+}
